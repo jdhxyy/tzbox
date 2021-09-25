@@ -10,8 +10,7 @@
 
 // TZBoxConvert64bitToStr 将64位数转换为字符串
 // 转换后的格式为:0x1234567812345678.会自动补0
-// str:转换后的字符串.字符串空间至少需要19个字节
-void TZBoxConvert64bitToStr(uint64_t num, char* str);
+const char* TZBoxConvert64bitToStr(uint64_t num);
 
 // TZBoxMemcpyReverse 翻转复制.比如src为小端存储.可以转换为大端存储在dst中
 void TZBoxMemcpyReverse(uint8_t* dst, uint8_t* src, int size);
