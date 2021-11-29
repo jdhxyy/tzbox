@@ -25,6 +25,9 @@ bool TZBoxMacArrToStr(uint8_t* mac, char* dst);
 // 转换后的数组长度是6字节
 bool TZBoxMacStrToArr(char* mac, uint8_t* dst);
 
+// TZBoxIPHexToStr 将16进制的IP地址转换为字符串
+const char* TZBoxIPHexToStr(uint32_t ip);
+
 // TZBoxHtons 2字节主机序转换为网络序
 uint16_t TZBoxHtons(uint16_t n);
 

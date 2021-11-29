@@ -80,6 +80,16 @@ bool TZBoxMacStrToArr(char* mac, uint8_t* dst) {
     return true;
 }
 
+// TZBoxIPHexToStr 将16进制的IP地址转换为字符串
+const char* TZBoxIPHexToStr(uint32_t ip) {
+    static char str[16] = {0};
+    memset(str, 0, 16);
+
+    sprintf(str, "%d.%d.%d.%d", (uint8_t)(ip >> 24), (uint8_t)(ip >> 16), 
+        (uint8_t)(ip >> 8), (uint8_t)ip);
+    return str;
+}
+
 // TZBoxHtons 2字节主机序转换为网络序
 uint16_t TZBoxHtons(uint16_t n) {
     return (uint16_t)(((n & 0xff) << 8) | ((n & 0xff00) >> 8));
