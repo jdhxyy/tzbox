@@ -1,5 +1,5 @@
 // Copyright 2019-2021 The jdh99 Authors. All rights reserved.
-// ¹¤¾ßÏä
+// å·¥å…·ç®±
 // Authors: jdh99 <jdh821@163.com>
 
 #include "tzbox.h"
@@ -8,8 +8,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-// TZBoxConvert64bitToStr ½«64Î»Êı×ª»»Îª×Ö·û´®
-// ×ª»»ºóµÄ¸ñÊ½Îª:0x1234567812345678.»á×Ô¶¯²¹0
+// TZBoxConvert64bitToStr å°†64ä½æ•°è½¬æ¢ä¸ºå­—ç¬¦ä¸²
+// è½¬æ¢åçš„æ ¼å¼ä¸º:0x1234567812345678.ä¼šè‡ªåŠ¨è¡¥0
 const char* TZBoxConvert64bitToStr(uint64_t num) {
     static char str[32] = {0};
     memset(str, 0, 32);
@@ -20,14 +20,14 @@ const char* TZBoxConvert64bitToStr(uint64_t num) {
     return str;
 }
 
-// TZBoxMemcpyReverse ·­×ª¸´ÖÆ.±ÈÈçsrcÎªĞ¡¶Ë´æ´¢.¿ÉÒÔ×ª»»Îª´ó¶Ë´æ´¢ÔÚdstÖĞ
+// TZBoxMemcpyReverse ç¿»è½¬å¤åˆ¶.æ¯”å¦‚srcä¸ºå°ç«¯å­˜å‚¨.å¯ä»¥è½¬æ¢ä¸ºå¤§ç«¯å­˜å‚¨åœ¨dstä¸­
 void TZBoxMemcpyReverse(uint8_t* dst, uint8_t* src, int size) {
     for (int i = 0; i < size; i++) {
         dst[i] = src[size - 1 - i];
     }
 }
 
-// TZBoxChecksum ¼ÆËãĞ£ÑéºÍ.Ëã·¨ÊÇÀÛ¼Ó
+// TZBoxChecksum è®¡ç®—æ ¡éªŒå’Œ.ç®—æ³•æ˜¯ç´¯åŠ 
 uint32_t TZBoxChecksum(uint8_t* bytes, int size) {
     uint32_t check = 0;
     for (int i = 0; i < size; i++) {
@@ -36,7 +36,7 @@ uint32_t TZBoxChecksum(uint8_t* bytes, int size) {
     return check;
 }
 
-// TZBoxMacArrToStr MACµØÖ·Êı×é×ª×Ö·û´®.×ª»»ºóµÄ¸ñÊ½Ê¾Àı4c:cc:6a:4d:ce:95
+// TZBoxMacArrToStr MACåœ°å€æ•°ç»„è½¬å­—ç¬¦ä¸².è½¬æ¢åçš„æ ¼å¼ç¤ºä¾‹4c:cc:6a:4d:ce:95
 bool TZBoxMacArrToStr(uint8_t* mac, char* dst) {
     uint8_t *dp = mac;
     
@@ -55,8 +55,8 @@ bool TZBoxMacArrToStr(uint8_t* mac, char* dst) {
     return true;
 }
 
-// TZBoxMacStrToArr MACµØÖ·×Ö·û´®×ªÊı×é.×Ö·û´®¸ñÊ½Ê¾Àı¸ñÊ½Ê¾Àı4c:cc:6a:4d:ce:95
-// ×ª»»ºóµÄÊı×é³¤¶ÈÊÇ6×Ö½Ú
+// TZBoxMacStrToArr MACåœ°å€å­—ç¬¦ä¸²è½¬æ•°ç»„.å­—ç¬¦ä¸²æ ¼å¼ç¤ºä¾‹æ ¼å¼ç¤ºä¾‹4c:cc:6a:4d:ce:95
+// è½¬æ¢åçš„æ•°ç»„é•¿åº¦æ˜¯6å­—èŠ‚
 bool TZBoxMacStrToArr(char* mac, uint8_t* dst) {
     char *macp;
     char *parseEnd;
@@ -80,7 +80,7 @@ bool TZBoxMacStrToArr(char* mac, uint8_t* dst) {
     return true;
 }
 
-// TZBoxIPHexToStr ½«16½øÖÆµÄIPµØÖ·×ª»»Îª×Ö·û´®
+// TZBoxIPHexToStr å°†16è¿›åˆ¶çš„IPåœ°å€è½¬æ¢ä¸ºå­—ç¬¦ä¸²
 const char* TZBoxIPHexToStr(uint32_t ip) {
     static char str[16] = {0};
     memset(str, 0, 16);
@@ -90,17 +90,17 @@ const char* TZBoxIPHexToStr(uint32_t ip) {
     return str;
 }
 
-// TZBoxHtons 2×Ö½ÚÖ÷»úĞò×ª»»ÎªÍøÂçĞò
+// TZBoxHtons 2å­—èŠ‚ä¸»æœºåºè½¬æ¢ä¸ºç½‘ç»œåº
 uint16_t TZBoxHtons(uint16_t n) {
     return (uint16_t)(((n & 0xff) << 8) | ((n & 0xff00) >> 8));
 }
 
-// TZBoxNtohs 2×Ö½ÚÍøÂçĞò×ª»»ÎªÖ÷»úĞò
+// TZBoxNtohs 2å­—èŠ‚ç½‘ç»œåºè½¬æ¢ä¸ºä¸»æœºåº
 uint16_t TZBoxNtohs(uint16_t n) {
     return TZBoxHtons(n);
 }
 
-// TZBoxHtonl 4×Ö½ÚÖ÷»úĞò×ª»»ÎªÍøÂçĞò
+// TZBoxHtonl 4å­—èŠ‚ä¸»æœºåºè½¬æ¢ä¸ºç½‘ç»œåº
 uint32_t TZBoxHtonl(uint32_t n) {
     return ((n & 0xff) << 24) |
         ((n & 0xff00) << 8) |
@@ -108,12 +108,12 @@ uint32_t TZBoxHtonl(uint32_t n) {
         ((n & 0xff000000UL) >> 24);
 }
 
-// TZBoxNtohl 4×Ö½ÚÍøÂçĞò×ª»»ÎªÖ÷»úĞò
+// TZBoxNtohl 4å­—èŠ‚ç½‘ç»œåºè½¬æ¢ä¸ºä¸»æœºåº
 uint32_t TZBoxNtohl(uint32_t n) {
     return TZBoxHtonl(n);
 }
 
-// TZBoxHtonll 8×Ö½ÚÖ÷»úĞò×ª»»ÎªÍøÂçĞò
+// TZBoxHtonll 8å­—èŠ‚ä¸»æœºåºè½¬æ¢ä¸ºç½‘ç»œåº
 uint64_t TZBoxHtonll(uint64_t n) {
     return ((n & 0xff) << 56) |
         ((n & 0xff00) << 40) |
@@ -125,7 +125,7 @@ uint64_t TZBoxHtonll(uint64_t n) {
         ((n & 0xff00000000000000ULL) >> 56);
 }
 
-// TZBoxNtohll 8×Ö½ÚÍøÂçĞò×ª»»ÎªÖ÷»úĞò
+// TZBoxNtohll 8å­—èŠ‚ç½‘ç»œåºè½¬æ¢ä¸ºä¸»æœºåº
 uint64_t TZBoxNtohll(uint64_t n) {
     return TZBoxHtonll(n);
 }
