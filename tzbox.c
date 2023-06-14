@@ -129,3 +129,9 @@ uint64_t TZBoxHtonll(uint64_t n) {
 uint64_t TZBoxNtohll(uint64_t n) {
     return TZBoxHtonll(n);
 }
+
+// TZBoxFilterFirstOrder 一阶滤波
+// value是当前值.realValue是实时值.ratio是系数,从0开始,系数越大滤波效果越好
+int TZBoxFilterFirstOrder(int value, int realValue, int ratio) {
+    return (realValue + value * ratio) / (ratio + 1);
+}

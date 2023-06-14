@@ -46,4 +46,8 @@ uint64_t TZBoxHtonll(uint64_t n);
 // TZBoxNtohll 8字节网络序转换为主机序
 uint64_t TZBoxNtohll(uint64_t n);
 
+// TZBoxFilterFirstOrder 一阶滤波
+// value是当前值.realValue是实时值.ratio是系数,从0开始,系数越大滤波效果越好
+int TZBoxFilterFirstOrder(int value, int realValue, int ratio);
+
 #endif
