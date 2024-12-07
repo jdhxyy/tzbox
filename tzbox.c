@@ -137,7 +137,7 @@ float TZBoxFilterFirstOrder(float value, float realValue, float ratio) {
 }
 
 // TZBoxIIRFilter IIR一阶滤波
-// value是当前值.realValue是实时值.ratio是系数,从0开始,系数越大滤波效果越好
+// value是当前值.realValue是实时值.ratio是系数,0-1之间,系数越小滤波效果越好
 float TZBoxIIRFilter(float value, float realValue, float ratio) {
-    return value + (value - realValue) * ratio;
+    return value + (realValue - value) * ratio;
 }
