@@ -237,3 +237,9 @@ int TZBoxSprintf(char *str, const char *format, ...) {
     va_end(args);
     return count;
 }
+
+// TZBoxIIRFilter IIR一阶滤波
+// value是当前值.realValue是实时值.ratio是系数,0-1之间,系数越小滤波效果越好
+float TZBoxIIRFilter(float value, float realValue, float ratio) {
+    return value + (realValue - value) * ratio;
+}

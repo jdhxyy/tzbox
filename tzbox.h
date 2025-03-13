@@ -54,4 +54,8 @@ float TZBoxFilterFirstOrder(float value, float realValue, float ratio);
 // 注意本函数不能打印浮点数
 int TZBoxSprintf(char *str, const char *format, ...);
 
+// TZBoxIIRFilter IIR一阶滤波
+// value是当前值.realValue是实时值.ratio是系数,0-1之间,系数越小滤波效果越好
+float TZBoxIIRFilter(float value, float realValue, float ratio);
+
 #endif
