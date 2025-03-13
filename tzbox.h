@@ -50,4 +50,8 @@ uint64_t TZBoxNtohll(uint64_t n);
 // value是当前值.realValue是实时值.ratio是系数,从0开始,系数越大滤波效果越好
 float TZBoxFilterFirstOrder(float value, float realValue, float ratio);
 
+// TZBoxSprintf sprintf函数的替代函数,用于某些MCU中不调用printfa.o节约空间
+// 注意本函数不能打印浮点数
+int TZBoxSprintf(char *str, const char *format, ...);
+
 #endif
